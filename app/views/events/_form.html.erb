@@ -1,0 +1,57 @@
+<%= form_for @event do |f| %>
+  <div class="form-group">
+    <div class="form-group">
+      <label>Name</label>
+      <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <%= f.text_field :description, placeholder: "Description", class: "form-control" %>
+    </div>
+
+
+    <div class="form-group">
+      <label>Location</label>
+      <%= f.text_field :location, placeholder: "Location", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>Price</label>
+      <%= f.number_field :price, placeholder: "Price in euro", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      Start time <%= f.datetime_field :starts_at %>
+    </div>
+
+    <div class="form-group">
+      End time <%= f.datetime_field :ends_at %>
+    </div>
+
+    <div class="form-group">
+      <label>Capacity</label>
+      <%= f.select :capacity, [["Up to 10", 10], ["10 to 20", 20], ["20 to 50", 50], ["50 to 100", 100]], prompt: "Select capacity of the event", class: "form-control" %>
+    </div>
+
+  <div class="form-group">
+    Food include <%= f.check_box :includes_food %> Yes <%= f.check_box :includes_food %> No
+  </div>
+  <div class="form-group">
+    Drinks include <%= f.check_box :includes_drinks %> Yes <%= f.check_box :includes_food %> No
+  </div>
+
+
+
+
+
+  <label>Create this Event?</label>
+
+  <div class="form-group">
+    <%= f.check_box :active %> Yes
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>

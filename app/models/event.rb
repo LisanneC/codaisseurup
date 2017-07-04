@@ -7,8 +7,6 @@ class Event < ApplicationRecord
   validates :price, presence: true
   validates :capacity, presence: true
   validates :description, presence: true, length: { maximum: 500 }
-  validates :starts_at, presence: true, date: { after: Proc.new { Date.current }, message: 'must be after today' },
-  on: :create
-  validates :ends_at, presence: true, date: { after: Proc.new { Date.current }, message: 'must be after today' },
-  on: :create
+  validates :starts_at, presence: true
+  validates :ends_at, presence: true
 end
