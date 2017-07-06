@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   validates :ends_at, presence: true
 
   has_and_belongs_to_many :categories
+  has_many :photos
 
   def cheapevent?
     price < 30

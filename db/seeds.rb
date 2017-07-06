@@ -13,7 +13,7 @@ jess = User.create!(email: "jess@codaisseurup.com", password: "7654321")
 
 #Profile first_name:string last_name:string bio:text user:references
 
-event = Event.create!(name: "Hackathon",
+event1 = Event.create!(name: "Hackathon",
                     description: "Hackathon codaisseurup",
                     location: "Amsterdam",
                     price: 100,
@@ -26,7 +26,7 @@ event = Event.create!(name: "Hackathon",
                     user: miriam,
                     categories: [tech, fun, food])
 
-event = Event.create!(name: "Fest",
+event2 = Event.create!(name: "Fest",
                     description: "Festival",
                     location: "Eindhoven",
                     price: 300,
@@ -39,7 +39,7 @@ event = Event.create!(name: "Fest",
                     user: joe,
                     categories: [food, dance, fun])
 
-event = Event.create!(name: "Beach",
+event3 = Event.create!(name: "Beach",
                     description: "All day fun!",
                     location: "Mastricht",
                     price: 50,
@@ -51,3 +51,8 @@ event = Event.create!(name: "Beach",
                     active: true,
                     user: jess,
                     categories: [food, dance, sport, fun])
+
+# Photos
+photo1 = Photo.create!(remote_image_url:"http://res.cloudinary.com/liss/image/upload/v1499346314/Hackathon.jpg", event: event1)
+photo2 = Photo.create!(remote_image_url:"http://res.cloudinary.com/liss/image/upload/v1499346314/codes.jpg", event: event1)
+photo3 = Photo.create!(remote_image_url:"http://res.cloudinary.com/liss/image/upload/v1499346314/what_the_Hackathon.jpg", event: event1)
