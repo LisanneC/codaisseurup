@@ -11,6 +11,8 @@ miriam = User.create!(email: "miriam@codaisseurup.com", password: "123456")
 joe = User.create!(email: "joe@codaisseurup.com", password: "098767")
 jess = User.create!(email: "jess@codaisseurup.com", password: "7654321")
 
+#Profile first_name:string last_name:string bio:text user:references
+
 event = Event.create!(name: "Hackathon",
                     description: "Hackathon codaisseurup",
                     location: "Amsterdam",
