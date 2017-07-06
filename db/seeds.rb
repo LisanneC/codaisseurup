@@ -1,5 +1,9 @@
+Photo.destroy_all
 Category.destroy_all
+Event.destroy_all
+Profile.destroy_all
 User.destroy_all
+
 
 tech = Category.create!(name: "Tech")
 fun = Category.create!(name: "Fun")
