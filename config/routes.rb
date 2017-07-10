@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :categories
-  get 'pages/home'
 
   root to: 'pages#home'
+
+  namespace :api do
+    resources :events
+    resources :categories
+  end
 
   devise_for :users
 
@@ -11,7 +14,5 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :edit, :create, :update]
   resources :photos
 
-  namespace :api do
-    resources :events
-  end
+
 end
