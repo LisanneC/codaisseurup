@@ -1,6 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+
+  describe "association with registration" do
+    let(:guest_user) { create :user, email: "guest@user.com" }
+    let(:host_user) { create :user, email: "host@user.com" }
+
+    let!(:event) { create :event, user: host_user }
+    let!(:registration) { create :registration, event: event, user: guest_user }
+
+    it "has guests" do
+      expect(event.guests).to include(guest_user)
+    end
+  end
   #describe "validations" do
     #it { is_expected.to validate_presence_of(:name) }
     #it { is_expected.to validate_length_of(:description).is_at_most(500) }
@@ -37,10 +49,12 @@ RSpec.describe Event, type: :model do
     #expect(event.user).to eq(user)
     #end
   #end
-  describe "associations" do
-    it { is_expected.to belong_to :user}
-    it { is_expected.to have_and_belong_to_many :categories}
-  end
+
+  #this is the short way to write it after installing the gem
+  #describe "associations" do
+    #it { is_expected.to belong_to :user}
+    #it { is_expected.to have_and_belong_to_many :categories}
+  #end
 
 
   #describe "association with category" do
@@ -56,7 +70,4 @@ RSpec.describe Event, type: :model do
       #expect(event.categories).to include(category3)
     #end
   #end
-
-
-
 end

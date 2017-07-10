@@ -1,5 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :categories
+  has_many :photos
+  has_many :registrations, dependent: :destroy
+  has_many :guests, through: :registrations, source: :user
 
   validates :name, presence: true, length: { maximum: 60 }
   validates :location, presence: true
@@ -9,8 +13,7 @@ class Event < ApplicationRecord
   validates :starts_at, presence: true
   validates :ends_at, presence: true
 
-  has_and_belongs_to_many :categories
-  has_many :photos
+
 
   def cheapevent?
     price < 30
